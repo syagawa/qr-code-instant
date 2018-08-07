@@ -1,0 +1,25 @@
+<canvas id="canvas"></canvas>
+
+<script src="node_modules/qrcode/build/qrcode.min.js"></script>
+<script src="settings.js"></script>
+<script>
+
+  (function(global){
+
+    var APP = global.APP;
+
+    var data = APP.data || 'sample text';
+
+    var QRCode = global.QRCode;
+    QRCode.toCanvas(
+      document.getElementById('canvas'),
+      data,
+      function (error) {
+        if (error){
+          console.error(error);
+        }
+        console.log('success!');
+      }
+    );
+  })(window);
+</script>
