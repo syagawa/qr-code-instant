@@ -10,5 +10,5 @@ Display QR Code easily and simply.
 2. `$ npm install`
 3. Change sample.settings.js to the name settings.js
 4. Change "change me" in settings.js
-5. Open index.html in Browser
-6. By changing input, QR-Code changes
+5. Open index.html in Browser.
+6. By changing input, QR-Code changes.

@@ -1,44 +1,61 @@
-<canvas id="canvas"></canvas>
-<input type="text" id="input">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>qr-code-instant</title>
+</head>
+<body>
 
-<script src="node_modules/qrcode/build/qrcode.min.js"></script>
-<script src="settings.js"></script>
-<script>
+  <div>
+    <canvas id="canvas"></canvas>
+  </div>
 
-  (function(global){
+  <div>
+    <label for="input">input string</label>
+    <input type="text" id="input">
+  </div>
 
-    var APP = global.APP;
-    APP.data = APP.data || "sample text";
-    var QRCode = global.QRCode;
+  <script src="node_modules/qrcode/build/qrcode.min.js"></script>
+  <script src="settings.js"></script>
+  <script>
 
-    APP.makeQRCode = function(data){
-      QRCode.toCanvas(
-        document.getElementById("canvas"),
-        data,
-        function (error) {
-          if (error){
-            console.error(error);
-          }else{
-            console.log("success!");
+    (function(global){
+
+      var APP = global.APP;
+      APP.data = APP.data || "sample text";
+      var QRCode = global.QRCode;
+
+      APP.makeQRCode = function(data){
+        QRCode.toCanvas(
+          document.getElementById("canvas"),
+          data,
+          function (error) {
+            if (error){
+              console.error(error);
+            }else{
+              console.log("success!");
+            }
           }
+        );
+      };
+
+      var input = document.getElementById("input");
+      input.addEventListener("change", function(e){
+        var data = e.target.value;
+        if(data){
+          APP.makeQRCode(data);
         }
-      );
-    };
+      });
 
-    var input = document.getElementById("input");
-    input.addEventListener("change", function(e){
-      var data = e.target.value;
-      if(data){
+      var init = function(){
+        var data = APP.data;
+        input.value = data;
         APP.makeQRCode(data);
-      }
-    });
+      };
+      init();
 
-    var init = function(){
-      var data = APP.data;
-      input.value = data;
-      APP.makeQRCode(data);
-    };
-    init();
+    })(window);
+  </script>
 
-  })(window);
-</script>
+</body>
+</html>
+
