@@ -11,5 +11,5 @@ Ok in local environment.
 2. `$ npm install`
 3. Change "sample.settings.js" to the name "settings.js"
 4. Change "change me" in settings.js
-5. Open index.html in Browser.
+5. Open index.html in Browser.(No need to start server)
 6. By changing input, QR-Code changes.
